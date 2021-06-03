@@ -1,5 +1,7 @@
 ﻿using Bussiness.Abstract;
+using Bussiness.Constants;
 using Core;
+using Core.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entity.Concrete;
@@ -22,36 +24,54 @@ namespace Bussiness.Concrete
             _carDal = carDal;
         }
 
-        public List<CarDetailDto> carDetails()
+        public IDataResult<List<CarDetailDto>> CarDetails()
         {
-            
-            return _carDal.CarDetailDto();
+            //Business codes
+            if (DateTime.Now.Hour == 00)//00da bakım başlıyor varsayalım
+            {
+                return new ErrorDataResult<List<CarDetailDto>>(_carDal.CarDetailDto(), Messages.CarsNotListed);
+            }
+
+            else
+            {
+                return new SuccessDataResult<List<CarDetailDto>>(_carDal.CarDetailDto(), Messages.ListedCars);
+            }
             
         }
 
-        public void Delete(Car entity)
+        public IResult Delete(Car entity)
         {
             _carDal.Delete(entity);
+            return new SuccessResult(Messages.CarDeleted);
         }
 
-        public List<Car> GetAll()
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetAll();
+            if (DateTime.Now.Hour == 00)
+            {
+                return new ErrorDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsNotListed);
+            }
+            else
+            {
+                return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.ListedCars);
+            }
         }
 
-        public Car GetById(int id)
+        public IDataResult<Car> GetById(int id)
         {
-            return _carDal.GetById(c=>c.Id == id);
+            return new SuccessDataResult<Car>(_carDal.GetById(c => c.Id == id));
         }
 
-        public void Insert(Car entity)
+        public IResult Insert(Car entity)
         {
             _carDal.Insert(entity);
+            return new SuccessResult(Messages.CarAdded);
         }
 
-        public void Update(Car entity)
+        public IResult Update(Car entity)
         {
             _carDal.Update(entity);
+            return new SuccessResult(Messages.CarUpdated);
         }
     }
 }

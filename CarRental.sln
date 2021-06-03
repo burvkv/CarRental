@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{1EEF18DD-269B-4FCD-AE30-A5AE9A1453A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{1EEF18DD-269B-4FCD-AE30-A5AE9A1453A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{0B585D91-BAE4-4FD2-A9E5-C2BABECC3C26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{0B585D91-BAE4-4FD2-A9E5-C2BABECC3C26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B56E361B-5331-44EC-87BF-B7D32302A2BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B56E361B-5331-44EC-87BF-B7D32302A2BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness", "Bussiness\Bussiness.csproj", "{3093CFEC-499A-4C9E-923D-004FC18B0108}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Bussiness\Business.csproj", "{3093CFEC-499A-4C9E-923D-004FC18B0108}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{FD6A87C0-5FB9-45EA-98BC-93BD9F356DE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{FD6A87C0-5FB9-45EA-98BC-93BD9F356DE2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B56E361B-5331-44EC-87BF-B7D32302A2BD} = {B56E361B-5331-44EC-87BF-B7D32302A2BD}
 		{0B585D91-BAE4-4FD2-A9E5-C2BABECC3C26} = {0B585D91-BAE4-4FD2-A9E5-C2BABECC3C26}

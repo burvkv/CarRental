@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Results;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,10 +10,10 @@ namespace Bussiness.Abstract
 {
     public interface IServiceRepository<T>
     {
-        void Insert(T entity);
-        void Delete(T entity);
-        void Update(T entity);
-        List<T> GetAll();
-        T GetById(int id);
+        IResult Insert(T entity);
+        IResult Delete(T entity);
+        IResult Update(T entity);
+        IDataResult<List<T>> GetAll();
+        IDataResult<T> GetById(int id);
     }
 }
