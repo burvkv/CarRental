@@ -16,5 +16,7 @@ namespace Bussiness.Constants
         public static string CarNotDeleted = "Car not deleted from db";
         public static string CarNotUpdated = "Car not updated";
         public static string CarsNotListed = "Cars not listed";
+        public static string CarNotRented = "You cannot rent this vehicle";
+        public static string CarRented = "You can rent this vehicle";
     }
 }
