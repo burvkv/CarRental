@@ -34,8 +34,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  CustomerFullName = u.FirstName + " " + u.LastName,
                                  CompanyName = c.CompanyName,
                                  Id = r.Id,
-                                 RentalDate = r.RentDate.Value,
-                                 ReturnDate = r.ReturnDate.Value
+                                 RentalDate = r.RentDate,
+                                 ReturnDate = r.ReturnDate.HasValue?r.ReturnDate.Value:new DateTime(0)
                              };
 
                 return result.ToList();
