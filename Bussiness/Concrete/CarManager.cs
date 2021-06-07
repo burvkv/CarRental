@@ -1,6 +1,8 @@
-﻿using Bussiness.Abstract;
+﻿using Business.ValidationRules.FluentValidation;
+using Bussiness.Abstract;
 using Bussiness.Constants;
 using Core;
+using Core.Aspect.Autofac;
 using Core.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -61,6 +63,8 @@ namespace Bussiness.Concrete
         {
             return new SuccessDataResult<Car>(_carDal.GetById(c => c.Id == id));
         }
+
+        [ValidationAspect(typeof(CarValidator))]
 
         public IResult Insert(Car entity)
         {

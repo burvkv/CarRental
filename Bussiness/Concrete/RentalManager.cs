@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
 using Bussiness.Constants;
+using Core.Aspect.Autofac;
 using Core.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -42,6 +44,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDtos());
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Insert(Rental entity)
         {
             if (_rentalDal.IsFinish(entity.CarId))

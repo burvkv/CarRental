@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspect.Autofac;
 using Core.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -35,6 +37,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(_customerDal.GetById(c=>c.CustomerId.Equals(id)));
         }
 
+        [ValidationAspect(typeof(CustomerValidator))]
         public IResult Insert(Customer entity)
         {
             _customerDal.Insert(entity);

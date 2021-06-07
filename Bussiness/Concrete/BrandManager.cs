@@ -1,5 +1,7 @@
-﻿using Bussiness.Abstract;
+﻿using Business.ValidationRules.FluentValidation;
+using Bussiness.Abstract;
 using Core;
+using Core.Aspect.Autofac;
 using Core.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -37,6 +39,7 @@ namespace Bussiness.Concrete
             return new SuccessDataResult<Brand>(_brandDal.GetById(b => b.BrandId == id));
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Insert(Brand entity)
         {
             _brandDal.Insert(entity);
